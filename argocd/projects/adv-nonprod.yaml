@@ -4,7 +4,7 @@ metadata:
   name: adv-nonprod
   namespace: argocd
 spec:
-  sourceRepos: ["https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git"]
+  sourceRepos: "https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git"
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "client-*-sh-*"
