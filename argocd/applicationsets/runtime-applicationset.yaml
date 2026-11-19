@@ -10,7 +10,7 @@ spec:
     - matrix:
         generators:
           - git:
-              repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+              repoURL: https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git
               revision: main
               files:
                 - path: topology/assignments/active/*/*.yaml
@@ -28,13 +28,13 @@ spec:
     spec:
       project: '{{ .argoProject }}'
       sources:
-        - repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+        - repoURL: https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git
           targetRevision: main
           path: charts/{{ .application }}
           helm:
             valueFiles:
               - '$values/desired-state/{{ .client }}/{{ .environment }}/{{ .application }}.yaml'
-        - repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+        - repoURL: https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git
           targetRevision: main
           ref: values
       destination:
