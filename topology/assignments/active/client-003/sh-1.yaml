@@ -2,7 +2,7 @@ apiVersion: adv.gitops/v1
 kind: ClientEnvironmentAssignment
 client: client-003
 environment: sh-1
-clusterRef: nonprod-1
+clusterRef: https://kubernetes.default.svc
 argoProject: adv-nonprod
 namespace: client-003-sh-1
 database:
