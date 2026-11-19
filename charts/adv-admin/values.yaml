@@ -11,5 +11,5 @@ resources:
 health:
   #readinessPath: /health
   #livenessPath: /health
-  readinessPath: /health
-  livenessPath: /health
+  readinessPath: /
+  livenessPath: /
