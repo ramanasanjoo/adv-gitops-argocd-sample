@@ -5,5 +5,5 @@ version: ""
 image:
   #repository: "<ACR_REGISTRY>/adv-admin"
   #digest: ""
-  repository: "localhost:5000/ramana/my-nginx"
-  digest: "sha256:689fbc6acfefc8a172d86d5779265fd52dd82e8c6b0c68c7d4aa35734340eb2a"
+  repository: "host.docker.internal:5000/ramana/my-nginx"
+  digest: "sha256:5b9ebb95001cc4f5242fbc3e1a9ac76d313c8ba197c7e5803a77d3f7879f0cda"
