@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: advantage-runtime
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: [missingkey=error]
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+              revision: main
+              files:
+                - path: topology/assignments/active/*/*.yaml
+          - list:
+              elements:
+                - application: adv-admin
+                - application: adv-hr
+                - application: adv-fin
+                - application: adv-connect
+                - application: adv-insight
+                - application: adv-perbudget
+  template:
+    metadata:
+      name: '{{ .client }}-{{ .environment }}-{{ .application }}'
+    spec:
+      project: '{{ .argoProject }}'
+      sources:
+        - repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+          targetRevision: main
+          path: charts/{{ .application }}
+          helm:
+            valueFiles:
+              - '$values/desired-state/{{ .client }}/{{ .environment }}/{{ .application }}.yaml'
+        - repoURL: https://github.com/<GITHUB_ORG>/adv-gitops-argocd.git
+          targetRevision: main
+          ref: values
+      destination:
+        server: '{{ .clusterRef }}'
+        namespace: '{{ .namespace }}'
+      syncPolicy:
+        automated: null
+        syncOptions:
+          - CreateNamespace=true

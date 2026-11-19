@@ -1,0 +1,6 @@
+apiVersion: v2
+name: adv-hr
+description: Advantage runtime chart for adv-hr
+type: application
+version: 1.0.0
+appVersion: "0.0.0"

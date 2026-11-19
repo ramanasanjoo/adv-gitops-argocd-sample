@@ -1,0 +1,25 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: {{ .Chart.Name }}}
+  template:
+    metadata:
+      labels: {app: {{ .Chart.Name }}}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}@{{ .Values.image.digest }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          readinessProbe:
+            httpGet: {path: {{ .Values.health.readinessPath }}, port: {{ .Values.service.port }}}
+          livenessProbe:
+            httpGet: {path: {{ .Values.health.livenessPath }}, port: {{ .Values.service.port }}}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+{{- end }}

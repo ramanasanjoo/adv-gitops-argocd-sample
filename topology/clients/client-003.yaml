@@ -1,0 +1,42 @@
+apiVersion: adv.gitops/v1
+kind: ClientTopology
+client:
+  id: client-003
+status: ACTIVE
+environments:
+  sh-1:
+    database:
+      engine: postgresql
+      databaseRef: DB_SH1_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003
+  sh-2:
+    database:
+      engine: postgresql
+      databaseRef: DB_SH2_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003
+  sh-3:
+    database:
+      engine: postgresql
+      databaseRef: DB_SH3_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003
+  ma-1:
+    database:
+      engine: postgresql
+      databaseRef: DB_MA1_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003
+  ma-2:
+    database:
+      engine: postgresql
+      databaseRef: DB_MA2_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003
+  prod:
+    database:
+      engine: postgresql
+      databaseRef: DB_PROD_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_003

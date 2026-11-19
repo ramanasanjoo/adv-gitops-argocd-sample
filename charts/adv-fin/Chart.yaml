@@ -1,0 +1,6 @@
+apiVersion: v2
+name: adv-fin
+description: Advantage runtime chart for adv-fin
+type: application
+version: 1.0.0
+appVersion: "0.0.0"

@@ -1,0 +1,12 @@
+apiVersion: adv.gitops/v1
+kind: ClientEnvironmentAssignment
+client: client-003
+environment: ma-1
+clusterRef: nonprod-2
+argoProject: adv-nonprod
+namespace: client-003-ma-1
+database:
+  engine: postgresql
+  databaseRef: DB_MA1_PG
+  isolationType: schema
+  clientSchemaOrDatabase: CLIENT_003

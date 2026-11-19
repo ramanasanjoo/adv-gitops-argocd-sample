@@ -1,0 +1,12 @@
+apiVersion: adv.gitops/v1
+kind: ClientEnvironmentAssignment
+client: client-001
+environment: prod
+clusterRef: prod
+argoProject: adv-prod
+namespace: client-001-prod
+database:
+  engine: sqlserver
+  databaseRef: DB_PROD_SQL
+  isolationType: database
+  clientSchemaOrDatabase: CLIENT_001

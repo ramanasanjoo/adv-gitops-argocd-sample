@@ -1,0 +1,51 @@
+apiVersion: adv.gitops/v1
+kind: EnvironmentRegistry
+environments:
+  sh-1:
+    clusterRef: nonprod-1
+    argoProject: adv-nonprod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_SH1_PG}
+      oracle: {databaseRef: DB_SH1_ORA}
+      sqlserver: {databaseRef: DB_SH1_SQL}
+  sh-2:
+    clusterRef: nonprod-1
+    argoProject: adv-nonprod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_SH2_PG}
+      oracle: {databaseRef: DB_SH2_ORA}
+      sqlserver: {databaseRef: DB_SH2_SQL}
+  sh-3:
+    clusterRef: nonprod-1
+    argoProject: adv-nonprod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_SH3_PG}
+      oracle: {databaseRef: DB_SH3_ORA}
+      sqlserver: {databaseRef: DB_SH3_SQL}
+  ma-1:
+    clusterRef: nonprod-2
+    argoProject: adv-nonprod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_MA1_PG}
+      oracle: {databaseRef: DB_MA1_ORA}
+      sqlserver: {databaseRef: DB_MA1_SQL}
+  ma-2:
+    clusterRef: nonprod-2
+    argoProject: adv-nonprod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_MA2_PG}
+      oracle: {databaseRef: DB_MA2_ORA}
+      sqlserver: {databaseRef: DB_MA2_SQL}
+  prod:
+    clusterRef: prod
+    argoProject: adv-prod
+    namespacePattern: "{client}-{environment}"
+    databases:
+      postgresql: {databaseRef: DB_PROD_PG}
+      oracle: {databaseRef: DB_PROD_ORA}
+      sqlserver: {databaseRef: DB_PROD_SQL}

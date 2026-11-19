@@ -1,0 +1,7 @@
+enabled: false
+releaseNumber: ""
+changeId: ""
+version: ""
+image:
+  repository: "<ACR_REGISTRY>/adv-fin"
+  digest: ""

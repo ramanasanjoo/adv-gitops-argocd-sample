@@ -1,0 +1,27 @@
+apiVersion: adv.gitops/v1
+kind: ApplicationCatalog
+applications:
+  adv-admin:
+    enabled: true
+    runtimeDependencies: []
+    buildDependencies: []
+  adv-hr:
+    enabled: true
+    runtimeDependencies: [adv-admin]
+    buildDependencies: []
+  adv-fin:
+    enabled: true
+    runtimeDependencies: [adv-admin]
+    buildDependencies: []
+  adv-connect:
+    enabled: true
+    runtimeDependencies: [adv-admin]
+    buildDependencies: []
+  adv-insight:
+    enabled: true
+    runtimeDependencies: [adv-admin]
+    buildDependencies: []
+  adv-perbudget:
+    enabled: true
+    runtimeDependencies: [adv-admin]
+    buildDependencies: [web-framework]

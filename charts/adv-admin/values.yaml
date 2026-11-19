@@ -1,0 +1,13 @@
+enabled: false
+image:
+  repository: <ACR_REGISTRY>/adv-admin
+  digest: <IMAGE_DIGEST>
+  pullPolicy: IfNotPresent
+service:
+  port: 8080
+resources:
+  requests: {cpu: 100m, memory: 256Mi}
+  limits: {cpu: 500m, memory: 512Mi}
+health:
+  readinessPath: /health
+  livenessPath: /health

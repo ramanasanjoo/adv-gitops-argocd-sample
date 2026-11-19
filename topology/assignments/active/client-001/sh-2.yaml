@@ -1,0 +1,12 @@
+apiVersion: adv.gitops/v1
+kind: ClientEnvironmentAssignment
+client: client-001
+environment: sh-2
+clusterRef: nonprod-1
+argoProject: adv-nonprod
+namespace: client-001-sh-2
+database:
+  engine: oracle
+  databaseRef: DB_SH2_ORA
+  isolationType: schema
+  clientSchemaOrDatabase: CLIENT_001

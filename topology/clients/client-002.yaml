@@ -1,0 +1,42 @@
+apiVersion: adv.gitops/v1
+kind: ClientTopology
+client:
+  id: client-002
+status: ACTIVE
+environments:
+  sh-1:
+    database:
+      engine: oracle
+      databaseRef: DB_SH1_ORA
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_002
+  sh-2:
+    database:
+      engine: sqlserver
+      databaseRef: DB_SH2_SQL
+      isolationType: database
+      clientSchemaOrDatabase: CLIENT_002
+  sh-3:
+    database:
+      engine: postgresql
+      databaseRef: DB_SH3_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_002
+  ma-1:
+    database:
+      engine: oracle
+      databaseRef: DB_MA1_ORA
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_002
+  ma-2:
+    database:
+      engine: sqlserver
+      databaseRef: DB_MA2_SQL
+      isolationType: database
+      clientSchemaOrDatabase: CLIENT_002
+  prod:
+    database:
+      engine: postgresql
+      databaseRef: DB_PROD_PG
+      isolationType: schema
+      clientSchemaOrDatabase: CLIENT_002

@@ -1,0 +1,12 @@
+apiVersion: adv.gitops/v1
+kind: ClientEnvironmentAssignment
+client: client-002
+environment: sh-2
+clusterRef: nonprod-1
+argoProject: adv-nonprod
+namespace: client-002-sh-2
+database:
+  engine: sqlserver
+  databaseRef: DB_SH2_SQL
+  isolationType: database
+  clientSchemaOrDatabase: CLIENT_002

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: adv-nonprod
+  namespace: argocd
+spec:
+  sourceRepos: ["https://github.com/<GITHUB_ORG>/adv-gitops-argocd"]
+  destinations:
+    - server: <ARGOCD_CLUSTER_SERVER_NONPROD_1>
+      namespace: "client-*-sh-*"
+    - server: <ARGOCD_CLUSTER_SERVER_NONPROD_2>
+      namespace: "client-*-ma-*"
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"

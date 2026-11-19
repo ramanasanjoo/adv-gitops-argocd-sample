@@ -1,0 +1,15 @@
+apiVersion: adv.gitops/v1
+kind: ClusterRegistry
+clusters:
+  nonprod-1:
+    name: <AKS_NONPROD_1_NAME>
+    server: <ARGOCD_CLUSTER_SERVER_NONPROD_1>
+    purpose: nonprod
+  nonprod-2:
+    name: <AKS_NONPROD_2_NAME>
+    server: <ARGOCD_CLUSTER_SERVER_NONPROD_2>
+    purpose: nonprod
+  prod:
+    name: <AKS_PROD_NAME>
+    server: <ARGOCD_CLUSTER_SERVER_PROD>
+    purpose: prod
