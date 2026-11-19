@@ -4,7 +4,8 @@ metadata:
   name: adv-prod
   namespace: argocd
 spec:
-  sourceRepos: https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git
+  sourceRepos: 
+    - "https://github.com/ramanasanjoo/adv-gitops-argocd-sample.git"
   destinations:
     - server: <ARGOCD_CLUSTER_SERVER_PROD>
       namespace: "client-*-prod"
